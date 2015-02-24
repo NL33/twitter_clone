@@ -1,0 +1,5 @@
+$('.new_tweet').remove(); //remove form with this id once submitted
+$('#new_tweet').show(); //show the add tweet prompt with this id
+$('.tweet_alert').text("Thanks. Your tweet has been entered below.")//fills div class with this message, like a flash message.
+$('.show_tweets').append('<%= j render(@tweet) %>'); //adds @tweet (per the controller, the answer just entered) to the loop listed in the form, rendered in tweets index view
+

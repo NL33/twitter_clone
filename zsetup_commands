@@ -92,19 +92,14 @@ views/layouts/application.html.erb:
       </div>
     <% end %>
 
-*Migration
+*Migration [Examples:]
 
 $ rails generate migration create_users  
-$ rails generate migration create_questions
-$ rails generate migration create_answers
-   $ rails generate migration DeleteChosenAnswerFromAnswers chosen_answer:string
-   $ rails generate migration AddChosenAnswerToAnswers chosen_answer:boolean
-  $ rails generate migration AddUpvotesCountToAnswers upvotes_count:integer   //add upvotes count in order to sort answers by count
-$ rails generate migration create_upvotes
+$ rails generate migration create_tweets
 
 
 
-[Note: also create sessions contoller for logins--no migration or model required there]
+[Note: if not using Devise, also create sessions contoller for logins--no migration or model required there]
 
 [examples of rollback, remove, and add:	
 	$ rake db:rollback VERSION=20150121004709 (delete file first; also can use STEP = 2)

@@ -1,0 +1,15 @@
+.minibox {
+    background-color: #deedff;
+    width: 180px;
+    padding: 4px;
+    border: none;
+    text-align: center;
+}
+
+.ellipsis { /* this is used for the box class */
+  text-overflow: ellipsis;
+
+  /* Required for text-overflow to do anything */
+  white-space: nowrap;
+  overflow: hidden;
+}

@@ -1,0 +1,38 @@
+<%= content_for(:title, "TwiterClone | Home") %>
+
+<h1> Twitter Cloner!</h1>
+
+<% if @tweets %>
+	<div class="show_tweets">
+	 <%= render @tweets %>
+	 <%# Whenever render is passed a collection of objects, it will render a partial with the same name as the class of the objects in the collection. So this is equivalent to
+	    <% @tweets.each do |tweet| %>
+	       <%#= render 'tweet' %>
+	    <%# end %> 
+	</div> 
+<% end %>  
+
+<div class = "tweet_alert"></>
+</br></br>
+<%= link_to "Add a Tweet", new_tweet_path, :class => "btn btn-default", id: "new_tweet", remote: true  %></br>
+
+</br>
+
+<%= form_tag tweets_path, method: :get do %>
+  <p>
+    <%= text_field_tag :query, params[:query], :placeholder => "search tweets" %>
+    <%= submit_tag "Search", :value => nil %>
+  </p>
+<% end %>
+
+<% if @searched_tweets %>
+  <% @searched_tweets.each do |searched_tweet| %>
+	<table>
+	  <tr>
+		 <td> <%= link_to searched_tweet.title, tweet_path(searched_tweet) %></td>
+	  </tr>
+	</table>
+  <% end %>
+	</br>
+<% end %>
+

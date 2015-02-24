@@ -55,5 +55,52 @@ Devise instructions:
       create    app/views/devise/mailer/confirmation_instructions.html.erb
       create    app/views/devise/mailer/reset_password_instructions.html.erb
       create    app/views/devise/mailer/unlock_instructions.html.erb
-Seans-MacBook-Air:twitter_clone sean$ 
+
+****
+generate devise user model:
+$ rails g devise user
+
+update migrate file and model file to correspond to selected devise features
+
+****
+
+$ rake db:migrate
+
+****
+update application.html.erb. For instance:
+<div class="container">
+  <div id="user_nav">
+    <% if user_signed_in? %>
+      Logged in as <strong><%= current_user.email %></strong>.
+      <%= link_to 'Edit profile', edit_user_registration_path %> |
+      <%= link_to "Logout", destroy_user_session_path, method: :delete %>  //this can be customized in the initializer config file
+    <% else %>
+      <%= link_to "Sign up", new_user_registration_path %> |
+      <%= link_to "Login", new_user_session_path %>
+    <% end %>
+  </div>
+
+  <% flash.each do |name, msg| %>
+    <%= content_tag :div, msg, id: "flash_#{name}" %>
+  <% end %>
+
+  <%= yield %>
+</div>
+****
+
+NOTE: if want devise signup page to be home page:
+config/routes:
+  devise_scope :user do
+     root :to => 'devise/sessions#new'
+   end 
+
+     #NOTE: To avoid infinite loop after signin, add to application controller, which overrides default devise methods:
+      
+      #def after_sign_in_path_for(resource_or_scope)
+         #your_path
+       #end
+
+       #def after_sign_out_path_for(resource_or_scope)
+        # your_path
+        #end
 
