@@ -1,0 +1,80 @@
+Steps used for sending welcome email after signup (while also using devise for authentication):
+
+
+i)*	$ rails g mailer user_mailer signup_confirmation
+
+ii)*	user_mailer.rb:
+class UserMailer < ApplicationMailer
+  default from: "welcome@twitterclone.com" 
+ 
+  def signup_confirmation(user)
+    @user = user #this specifies who to send email to. We set the instance variable here to use it in the view
+
+    mail to: user.email, subject: "Welcome to TwitterClone"
+  end
+end
+
+iii)* signup_confirmation.text.erb:
+<%= @user.email %>,
+
+Thank you for signing up.
+
+<%= root_path %> //note: could do @user if show page exists
+
+iv)*	signup_confirmation.html.erb:
+<p><%= @user.email %>,</p>
+
+<p>Thank you for signing up.</p>
+
+<p><%=link_to "Tweets", root_path %> //note: could do @user instead of root_path  if show page exists
+
+v)*	user_controller (to define @user):
+
+class UsersController < ApplicationController
+  def create
+    @user = User.new(params[:user])
+  end
+
+end
+
+vi)*	user.rb (note—this is a function of using devise. If we were not using devise, we would do more in the user controller per railscast 61 (revised)):
+
+  after_create :send_welcome_message
+
+  def send_welcome_message
+    UserMailer.signup_confirm(self).deliver
+  end
+
+vii)*	config/enviornments/development.rb:
+
+  # Don't care if the mailer can't send.
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :letter_opener
+
+viii)*	NOTE: chances are that we’ll want to add options to our production configuration file too but with different values to suit the application when it’s in production.
+
+ix)*	through devise, we have already set up a local host for the mailer (necessary if include url in email):
+
+    config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+x)*	set up letter opener gem to preview email in development environment (discussed in railscast 61):
+
+/Gemfile
+gem "letter_opener", :group => :development
+Next we need to change the delivery_method in the config file.
+
+/config/environments/development.rb
+config.action_mailer.delivery_method = :letter_opener
+  
+**Restart server
+
+(alternative:
+ config.action_mailer.delivery_method =:smtp
+  config.action_mailer.smtp_settings = {
+  address:              'smtp.gmail.com',
+  port:                 587,
+  domain:               'gmail.com',
+  user_name:            'myname@gmail.com',
+  password:             'mypassword',
+  authentication:       'plain',
+  enable_starttls_auto: true  })
