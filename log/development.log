@@ -10952,3 +10952,245 @@ Processing by TweetsController#index as HTML
   Rendered tweets/_tweet.html.erb (7.6ms)
   Rendered tweets/index.html.erb within layouts/application (10.4ms)
 Completed 200 OK in 136ms (Views: 132.5ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/" for ::1 at 2015-02-26 09:57:44 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (3.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TweetsController#index as HTML
+  [1m[35mUser Load (5.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 4]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (2.0ms)[0m  UPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = $5  [["last_sign_in_at", "2015-02-24 21:40:20.486860"], ["current_sign_in_at", "2015-02-26 14:57:44.407493"], ["sign_in_count", 4], ["updated_at", "2015-02-26 14:57:44.409767"], ["id", 4]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mTweet Load (2.5ms)[0m  SELECT "tweets".* FROM "tweets"
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", "4"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", "4"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", "4"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", "4"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", "4"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", "4"]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", "4"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", "4"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", "4"]]
+  Rendered tweets/_tweet.html.erb (11.1ms)
+  Rendered tweets/index.html.erb within layouts/application (35.1ms)
+Completed 200 OK in 447ms (Views: 341.8ms | ActiveRecord: 27.9ms)
+
+
+Started GET "/tweets/new" for ::1 at 2015-02-26 09:59:21 -0500
+Processing by TweetsController#new as JS
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 4]]
+  Rendered tweets/_form.html.erb (102.5ms)
+  Rendered tweets/new.js.erb (116.1ms)
+Completed 200 OK in 199ms (Views: 128.6ms | ActiveRecord: 10.2ms)
+
+
+Started POST "/tweets" for ::1 at 2015-02-26 09:59:37 -0500
+Processing by TweetsController#create as JS
+  Parameters: {"utf8"=>"✓", "tweet"=>{"title"=>"How about the length", "text"=>"[#example: <p>Here is a link to my <a href=\"favorite-things.html\">favorite things</a>.</p>\r\nInstead of supplying a full path the address, we've provided a relative path. If a link doesn't start with http:// (or https://, or a few other specific protocols you may come across), your web browser will look in the same folder for the file you're linking to.]\r\n", "user_id"=>"4"}, "commit"=>"Create Tweet"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 4]]
+Unpermitted parameter: user_id
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  Rendered tweets/_form.html.erb (2.0ms)
+  Rendered tweets/new.js.erb (4.7ms)
+Completed 200 OK in 17ms (Views: 9.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for ::1 at 2015-02-26 10:00:02 -0500
+Processing by TweetsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 4]]
+  [1m[35mTweet Load (1.0ms)[0m  SELECT "tweets".* FROM "tweets"
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", "4"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", "4"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", "4"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", "4"]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", "4"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", "4"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", "4"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", "4"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", "4"]]
+  Rendered tweets/_tweet.html.erb (9.5ms)
+  Rendered tweets/index.html.erb within layouts/application (20.7ms)
+Completed 200 OK in 215ms (Views: 182.3ms | ActiveRecord: 7.7ms)
+
+
+Started GET "/tweets/new" for ::1 at 2015-02-26 10:00:05 -0500
+Processing by TweetsController#new as JS
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 4]]
+  Rendered tweets/_form.html.erb (2.3ms)
+  Rendered tweets/new.js.erb (5.5ms)
+Completed 200 OK in 25ms (Views: 12.3ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/tweets" for ::1 at 2015-02-26 10:00:14 -0500
+Processing by TweetsController#create as JS
+  Parameters: {"utf8"=>"✓", "tweet"=>{"title"=>"Long tweet!", "text"=>"[#example: <p>Here is a link to my <a href=\"favorite-things.html\">favorite things</a>.</p>\r\nInstead of supplying a full path the address, we've provided a relative path. If a link doesn't start with http:// (or https://, or a few other specific protocols you may come across), your web browser will look in the same folder for the file you're linking to.]\r\n", "user_id"=>"4"}, "commit"=>"Create Tweet"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 4]]
+Unpermitted parameter: user_id
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  Rendered tweets/_form.html.erb (2.0ms)
+  Rendered tweets/new.js.erb (4.9ms)
+Completed 200 OK in 18ms (Views: 11.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for ::1 at 2015-02-26 10:02:14 -0500
+Processing by TweetsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 4]]
+  [1m[35mTweet Load (0.5ms)[0m  SELECT "tweets".* FROM "tweets"
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", "4"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", "4"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", "4"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", "4"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", "4"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", "4"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", "4"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", "4"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", "4"]]
+  Rendered tweets/_tweet.html.erb (8.3ms)
+  Rendered tweets/index.html.erb within layouts/application (17.1ms)
+Completed 200 OK in 216ms (Views: 192.7ms | ActiveRecord: 5.7ms)
+
+
+Started GET "/tweets/new" for ::1 at 2015-02-26 10:02:17 -0500
+Processing by TweetsController#new as JS
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 4]]
+  Rendered tweets/_form.html.erb (2.5ms)
+  Rendered tweets/new.js.erb (5.7ms)
+Completed 200 OK in 27ms (Views: 12.2ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/tweets" for ::1 at 2015-02-26 10:02:25 -0500
+Processing by TweetsController#create as JS
+  Parameters: {"utf8"=>"✓", "tweet"=>{"title"=>"How about this?", "text"=>"[#example: <p>Here is a link to my <a href=\"favorite-things.html\">favorite things</a>.</p>\r\nInstead of supplying a full path the address, we've provided a relative path. If a link doesn't start with http:// (or https://, or a few other specific protocols you may come across), your web browser will look in the same folder for the file you're linking to.]\r\n", "user_id"=>"4"}, "commit"=>"Create Tweet"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 4]]
+Unpermitted parameter: user_id
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  Rendered tweets/_form.html.erb (2.1ms)
+  Rendered tweets/new.js.erb (4.7ms)
+Completed 200 OK in 17ms (Views: 10.5ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/tweets" for ::1 at 2015-02-26 10:02:41 -0500
+Processing by TweetsController#create as JS
+  Parameters: {"utf8"=>"✓", "tweet"=>{"title"=>"How about this?", "text"=>"10:02\r\n", "user_id"=>"4"}, "commit"=>"Create Tweet"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 4]]
+Unpermitted parameter: user_id
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (5.6ms)[0m  [1mINSERT INTO "tweets" ("title", "text", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "How about this?"], ["text", "10:02\r\n"], ["user_id", "4"], ["created_at", "2015-02-26 15:02:41.923681"], ["updated_at", "2015-02-26 15:02:41.923681"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 4]]
+  Rendered tweets/_tweet.html.erb (2.2ms)
+  Rendered tweets/create.js.erb (4.0ms)
+Completed 200 OK in 29ms (Views: 8.0ms | ActiveRecord: 6.9ms)
+
+
+Started GET "/" for ::1 at 2015-02-26 10:03:59 -0500
+Processing by TweetsController#index as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 4]]
+  [1m[36mTweet Load (0.4ms)[0m  [1mSELECT "tweets".* FROM "tweets"[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", "4"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", "4"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", "4"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", "4"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", "4"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", "4"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", "4"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", "4"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", "4"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", "4"]]
+  Rendered tweets/_tweet.html.erb (8.0ms)
+  Rendered tweets/index.html.erb within layouts/application (11.1ms)
+Completed 200 OK in 139ms (Views: 134.8ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/tweets/new" for ::1 at 2015-02-26 10:04:01 -0500
+Processing by TweetsController#new as JS
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 4]]
+  Rendered tweets/_form.html.erb (1.7ms)
+  Rendered tweets/new.js.erb (5.3ms)
+Completed 200 OK in 15ms (Views: 11.6ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/tweets" for ::1 at 2015-02-26 10:04:15 -0500
+Processing by TweetsController#create as JS
+  Parameters: {"utf8"=>"✓", "tweet"=>{"title"=>"How about this?", "text"=>"Here is a tweet. 10:04am", "user_id"=>"4"}, "commit"=>"Create Tweet"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 4]]
+Unpermitted parameter: user_id
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "tweets" ("title", "text", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["title", "How about this?"], ["text", "Here is a tweet. 10:04am"], ["user_id", "4"], ["created_at", "2015-02-26 15:04:15.946672"], ["updated_at", "2015-02-26 15:04:15.946672"]]
+  [1m[36m (8.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 4]]
+  Rendered tweets/_tweet.html.erb (2.8ms)
+  Rendered tweets/create.js.erb (4.0ms)
+Completed 200 OK in 24ms (Views: 8.0ms | ActiveRecord: 9.8ms)
+
+
+Started GET "/" for ::1 at 2015-02-26 10:04:36 -0500
+Processing by TweetsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 4]]
+  [1m[35mTweet Load (0.4ms)[0m  SELECT "tweets".* FROM "tweets"
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", "4"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", "4"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", "4"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", "4"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", "4"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", "4"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", "4"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", "4"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", "4"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", "4"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", "4"]]
+  Rendered tweets/_tweet.html.erb (8.1ms)
+  Rendered tweets/index.html.erb within layouts/application (12.1ms)
+Completed 200 OK in 133ms (Views: 129.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/tweets/new" for ::1 at 2015-02-26 10:04:39 -0500
+Processing by TweetsController#new as JS
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 4]]
+  Rendered tweets/_form.html.erb (1.7ms)
+  Rendered tweets/new.js.erb (4.4ms)
+Completed 200 OK in 14ms (Views: 10.6ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/tweets" for ::1 at 2015-02-26 10:04:49 -0500
+Processing by TweetsController#create as JS
+  Parameters: {"utf8"=>"✓", "tweet"=>{"title"=>"10:05", "text"=>"10:05", "user_id"=>"4"}, "commit"=>"Create Tweet"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 4]]
+Unpermitted parameter: user_id
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "tweets" ("title", "text", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["title", "10:05"], ["text", "10:05"], ["user_id", "4"], ["created_at", "2015-02-26 15:04:49.016050"], ["updated_at", "2015-02-26 15:04:49.016050"]]
+  [1m[36m (8.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 4]]
+  Rendered tweets/_tweet.html.erb (2.2ms)
+  Rendered tweets/create.js.erb (3.5ms)
+Completed 200 OK in 25ms (Views: 7.5ms | ActiveRecord: 9.8ms)
+
+
+Started GET "/" for ::1 at 2015-02-26 10:05:15 -0500
+Processing by TweetsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 4]]
+  [1m[35mTweet Load (0.4ms)[0m  SELECT "tweets".* FROM "tweets"
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", "4"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", "4"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", "4"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", "4"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", "4"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", "4"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", "4"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", "4"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", "4"]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", "4"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", "4"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", "4"]]
+  Rendered tweets/_tweet.html.erb (9.8ms)
+  Rendered tweets/index.html.erb within layouts/application (14.1ms)
+Completed 200 OK in 132ms (Views: 129.0ms | ActiveRecord: 1.2ms)

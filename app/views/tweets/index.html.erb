@@ -1,6 +1,7 @@
 <%= content_for(:title, "TwitterClone | Home") %>
 
 <h1> Twitter Cloner!</h1>
+<strong><div class = "tweet_alert"></div></strong></br>
 
 <% if @tweets %>
 	<div class="show_tweets">
@@ -12,7 +13,7 @@
 	</div> 
 <% end %>  
 
-<div class = "tweet_alert"></>
+
 </br></br>
 <%= link_to "Add a Tweet", new_tweet_path, :class => "btn btn-default", id: "new_tweet", remote: true  %></br>
 
