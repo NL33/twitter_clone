@@ -8,4 +8,5 @@ class Tweet < ActiveRecord::Base
   user.email
  end
 
+
 end
