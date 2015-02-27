@@ -1,0 +1,16 @@
+<%= content_for(:title, "User Detail") %>
+
+<h2> <%= @user.username %> </h2>
+
+ <% @user.tweets.each do |tweet| %>
+   <table>
+  <tr>
+   <%= tweet.title %><br>
+   <%= tweet.text %><br>
+</tr></br>
+
+<% end %>
+
+</br>
+
+<%= link_to "Home Page", root_path, :class => "btn btn-default" %>

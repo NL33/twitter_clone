@@ -2,4 +2,5 @@ $('.new_tweet').remove(); //remove form with this id once submitted
 $('#new_tweet').show(); //show the add tweet prompt with this id
 $('.tweet_alert').text("Thanks. Your tweet has been entered below.")//fills div class with this message, like a flash message.
 $('.show_tweets').append('<%= j render(@tweet) %>'); //adds @tweet (per the controller, the answer just entered) to the loop listed in the form, rendered in tweets index view
-
+$('.show_tweettitle_on_profile_page').text('<%= j @tweet.title %>'); //this is for profile page. Separated to avoid issues with line breaks in rails/jquery rendering
+$('.show_tweettext_on_profile_page').text('<%= j @tweet.text %>');

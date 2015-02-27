@@ -3,7 +3,7 @@
   <tr>
 	 <%= tweet.title %><br>
 	 <%= tweet.text %><br>
-  <div class="minibox"><div class="ellipsis"><%= tweet.show_user_email %></div></div>
+  <div class="minibox"><div class="ellipsis"><%= link_to tweet.user.username, user_path(tweet.user) %></div></div>
 </tr>
 </table>
 </br>

@@ -1,0 +1,5 @@
+<% if @user == current_user %>
+  <%= render "profile_page" %>
+<% else %>
+  <%= render "non_profile_show" %>
+<% end %>
