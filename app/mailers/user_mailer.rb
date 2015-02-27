@@ -10,6 +10,6 @@ class UserMailer < ApplicationMailer
   def notification_email(mentioned_user, tweet)
     @user = mentioned_user
     @tweet = tweet
-    mail to: user.email, subject: "#{tweet.user.usernname} mentioned you in a tweet. Yay!"
+    mail to: mentioned_user.email, subject: "#{tweet.user.username} mentioned you in a tweet. Yay!"
   end
 end

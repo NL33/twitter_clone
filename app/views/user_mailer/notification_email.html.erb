@@ -1,5 +1,5 @@
-<p><%= @user.email %>,</p>
+<p><%= @user.username %>,</p>
 
 <p>Thank you for signing up.</p>
 
-<p><%= @tweet.user.name just mentioned you in a tweet. Check it out %> <%=link_to "here", root_path %>!</p>
+<p>'#{<%= @tweet.user.username %>} just mentioned you. Check it out #{<%=link_to "here", root_path %>} !'</p>

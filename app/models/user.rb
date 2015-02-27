@@ -4,7 +4,11 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable#, :confirmable #removed for testing locally
 
-  validates :username, presence: true, uniqueness: true, format: { with: /[[:alnum:]]+/ , message: "only allows letters and numbers" }
+  validates_presence_of :username, presence: true
+
+  validates_uniqueness_of :username 
+
+  validates_format_of :username, with: /[[:alnum:]]+/ , message: "only allows letters and numbers"
 
   has_many :tweets
 
