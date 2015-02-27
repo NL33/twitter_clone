@@ -11,13 +11,16 @@ class TweetsController < ApplicationController
 
   def new 
     @tweet = current_user.tweets.new
- 
   end
 
   def create
     @tweets = Tweet.all
     @tweet = current_user.tweets.new(tweet_params)
     if @tweet.save
+        mentioned_users = @tweet.find_mentioned_users
+        mentioned_users.each do |mentioned_user|
+          @tweet.receive_email(mentioned_user)
+        end
         respond_to do |format|
           format.html { redirect_to root_path}
           format.js #refers to separate tweet template--here, with create action in name (views/tweets/create.js.erb)

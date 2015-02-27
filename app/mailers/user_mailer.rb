@@ -6,4 +6,10 @@ class UserMailer < ApplicationMailer
 
     mail to: user.email, subject: "Welcome to TwitterClone"
   end
+
+  def notification_email(mentioned_user, tweet)
+    @user = mentioned_user
+    @tweet = tweet
+    mail to: user.email, subject: "#{tweet.user.usernname} mentioned you in a tweet. Yay!"
+  end
 end
