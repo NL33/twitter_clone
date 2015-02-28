@@ -12,6 +12,9 @@ class User < ActiveRecord::Base
 
   has_many :tweets
 
+  has_many :following_relationships
+  has_many :followed_users, through: :following_relationships
+
   after_create :send_welcome_message
 
   def send_welcome_message

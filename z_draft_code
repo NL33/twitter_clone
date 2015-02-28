@@ -1,0 +1,34 @@
+<%= form_for (@stop) do |f| %>
+  <div class="form-group">
+    <%= f.label :station_id %>
+    <%= f.collection_select :station_id, Station.all, :id, :name %>
+  </div>
+  <div class="form-group">
+    <%= f.label :line_id %>
+    <%= f.collection_select :line_id, Line.all, :id, :name %>
+  </div>
+  <%= f.submit(:class=>"btn btn-primary")%>
+<% end %>
+
+
+
+class CreateFollowerRelationships < ActiveRecord::Migration
+  def change
+    create_table :follower_relationships do |t|
+     t.belongs_to :user, index: true  
+     t.belongs_to :follower, index: true
+
+   	 t.timestamps
+    end
+  end
+end
+
+class CreateFollowers < ActiveRecord::Migration
+  def change
+    create_table :followers do |t|
+    	 t.integer :user_id  #Note: unique here: id of the User who is the follower (one to one relationship between a user and that user as follower)
+
+   	 t.timestamps
+    end
+  end
+end

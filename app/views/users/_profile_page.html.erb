@@ -2,8 +2,8 @@
 
 <h2> <%= @user.username %> : Here is your profile </h2></br>
 
-<h4> Username: @user.username %> </h4></br>
-<h4> Email: @user.email %> </h4></br>
+<h4> Username: <%= @user.username %> </h4></br>
+<h4> Email: <%= @user.email %> </h4></br>
 
 <h4> Your Tweets: </h4>
 <%= link_to "Add a Tweet", new_tweet_path, :class => "btn btn-default", id: "new_tweet", remote: true  %></br>
@@ -20,6 +20,12 @@
 	<% end %>
 <div class="show_tweettitle_on_profile_page"></div>
 <div class="show_tweettext_on_profile_page"></div></br>
+
+<p> Users you are following: </p>
+<% @user.following_relationships.each do |following_relationship| %>
+   <%= link_to following_relationship.show_followed_user.username, user_path(following_relationship.show_followed_user)  %></br>
+ <% end %>
+
 
 </br></br>
 

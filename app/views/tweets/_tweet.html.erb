@@ -4,6 +4,7 @@
 	 <%= tweet.title %><br>
 	 <%= tweet.text %><br>
   <div class="minibox"><div class="ellipsis"><%= link_to tweet.user.username, user_path(tweet.user) %></div></div>
+  <%= link_to "Follow this User", following_relationships_path(:followed_user_id => tweet.user_id), :method => :post %>
 </tr>
 </table>
 </br>

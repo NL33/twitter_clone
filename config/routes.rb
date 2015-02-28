@@ -5,4 +5,8 @@ devise_for :users
 resources :users, :only => [:show]  
 
 resources :tweets
+
+resources :following_relationships
+
+
 end

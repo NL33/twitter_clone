@@ -96,6 +96,9 @@ views/layouts/application.html.erb:
 
 $ rails generate migration create_users  
 $ rails generate migration create_tweets
+$ rails generate migration create_followed_users
+$ rails generate migration create_following_relationships
+
 
 
 
