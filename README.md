@@ -2,7 +2,11 @@ Rails app (including some AJAX functionality): reproduces basic functionality of
 
 --set up accounts (Devise gem used)
 
+--users get welcome emails when they set up accounts
+
 --post "tweets" (dynamic AJAX functionality used)
+
+--users get email notification if they are mentioned in another's tweet
 
 --view their profile page and pages of other users
 
